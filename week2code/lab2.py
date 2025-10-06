@@ -1,7 +1,8 @@
+#imports regular expressions library
 import re
 
 # Open and read the content of lab1example.txt
-with open('lab1example.txt', 'r',encoding="utf8") as input_file:
+with open('week2code\lab1example.txt', 'r',encoding="utf8") as input_file:
     # text = file.read()
     # Read the file line bye line for tracking line numbers
     lines = input_file.readlines()
