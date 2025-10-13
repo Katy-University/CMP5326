@@ -9,16 +9,15 @@ def identifyFileType(filename):
 # Dictionary of common file signatures
     fileSignatures = {
         '89504e47': 'PNG image',
-        '47494638': 'GIF image',
         'ffd8ffe0': 'JPEG image',
         '504b0304': 'ZIP archive',
         '25504446': 'PDF document',
     }
 
 # Check the file signature against known signatures
-    for signature, fileType in fileSignatures.items():
-        if hexData.startswith(signature):
-            print("File type identified:", fileType)
+    for signature, fileType in fileSignatures.items(): # loop through signatures
+        if hexData.startswith(signature): # check if file starts with signature
+            print("File type identified:", fileType) # print file type
             return
     print("Unknown file type")
 
