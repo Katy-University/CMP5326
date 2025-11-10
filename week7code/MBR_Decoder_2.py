@@ -1,5 +1,6 @@
 # Add the regex library to the program
 import re
+# Add the struct library to the program
 import struct
 
 # 1 open the disk image file
@@ -53,25 +54,25 @@ if m is not None:
         print("Partition Type is not recognised)")
 
 # 16 Get the start LBA value from the matched group
-
+start_lba_bytes = m.group("start_lba_part1")
 
 # 17 Convert the bytes obtained above into a single integer value
-
+start_lba = struct.unpack('<I', start_lba_bytes)
 
 # 18 Display the start LBA
-
+print(f"The start LBA of the partition is {start_lba[0]}")
 
 # 19 code to get the number of sectors character bytes from the named group called num_sectors_part1 and store
 # them in a variable called num_sectors_bytes
-
+num_sectors_bytes = m.group("num_sectors_part1")
 
 # 20 code to convert the bytes stored in num_sector_bytes into a little endian 32 bit integer,
 # unsigned using the struct.unpack function.  Store the converted value in a variable called num_sectors.
-
+num_sectors = struct.unpack('<I', num_sectors_bytes)[0]
 
 # 21 code to display the converted value from the variable num_sectors.  The program should output something like
-# f“The number of sectors in the partition is {sum_sectors}"
-
+# f“The number of sectors in the partition is {num_sectors}"
+print(f"The number of sectors in the partition is {num_sectors}")
 
 '''
 Solution to getting info from the rest of the partitions(It would make more sense to group all of this with the
