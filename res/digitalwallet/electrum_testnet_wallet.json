@@ -1,0 +1,13 @@
+{
+  "keystore": {
+    "type": "watching",
+    "addresses": [
+      "mipcBbFg9gMiCh81Kj8tqqdgoZub1ZJRfn",
+      "2N2JD6wb56AfK4tfmM6PwdVmoYk2dCKf4Br",
+      "tb1qexampletestnetaddress0000000000000"
+    ]
+  },
+  "wallet_type": "standard",
+  "label": "Testnet Teaching Wallet (no keys)",
+  "seed_version": null
+}

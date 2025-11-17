@@ -1,7 +1,7 @@
 import re
 
 # Open and read the content of lab1example.txt
-with open('lab1example.txt', 'r',encoding="utf8") as file:
+with open('lab1example.txt', 'r', encoding="utf8") as file:
     text = file.read()
 
 # Define a regex pattern to match email addresses
