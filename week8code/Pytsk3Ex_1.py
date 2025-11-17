@@ -9,7 +9,7 @@ read the relevant documentation.
 import pytsk3
 
 # 2 Create a new IMG_Info object by opening the file and name object as diskimage
-diskimage = pytsk3.Img_Info("diskimageMT.001")
+diskimage = pytsk3.Img_Info("week8code\\diskimageMT.001")
 
 # 3 Display the size of the disk image in raw bytes
 print(f"The image file size is {diskimage.get_size()} bytes in size")

@@ -54,10 +54,24 @@ def open_evidence_file():
         print("#"*45)
         # 4.1 Display the size of the disk image in raw bytes
         size =evidence_file.get_size()
-        print(f"The image file is {size} bytes in size")
-        totalSecors = size/512
-        print(f"Total number of sectors in image is {totalSecors} ")
-
+        #Make the bytes more readable by changing values to display in KB, MB, or GB and truncate to 2 decimal places
+        if size < 1024:
+            print(f"The image file is {size} bytes in size")
+            pass
+        elif size < 1024**2:
+            size = size / 1024
+            size = round(size, 2)
+            print(f"The image file is {size} KB in size")
+        elif size < 1024**3:
+            size = size / (1024**2)
+            size = round(size, 2)
+            print(f"The image file is {size} MB in size")
+        else:
+            size = size / (1024**3)
+            size = round(size, 2)
+            print(f"The image file is {size} GB in size")
+        totalSectors = evidence_file.get_size() / 512
+        print(f"Total number of sectors in image is {totalSectors} ")
         volume_info = pytsk3.Volume_Info(evidence_file)
         print(f'Size of the block is set to {volume_info.info.block_size}')
 
@@ -201,7 +215,9 @@ def run_main():
             display_file_details()
         elif selected_option == '6':
             print("Exiting Program.")
-            #exit the program
+            #exit the program and close any open evidence file
+            if evidence_file is not None:
+                evidence_file.close()
             break
         else:
             print('Input not recongnised')
